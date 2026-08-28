@@ -1,0 +1,193 @@
+/* ==============================================================================
+   1. KEYFRAME ANIMATIONS (WINDOWS 7 AERO PHASE TRANSITION)
+   ============================================================================== */
+@keyframes win7PhaseTransition {
+    0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+        filter: blur(8px) brightness(0.8);
+    }
+    60% {
+        opacity: 0.85;
+        filter: blur(2px) brightness(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+@keyframes aeroGlowPulse {
+    0% {
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.2), inset 0 0 10px rgba(192, 132, 252, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(192, 132, 252, 0.5), inset 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.2), inset 0 0 10px rgba(192, 132, 252, 0.1);
+    }
+}
+
+/* ==============================================================================
+   2. BASE CANVAS & CONTAINERS
+   ============================================================================== */
+/* Dark Charcoal & Midnight Void Canvas */
+.stApp {
+    background: radial-gradient(circle at 50% 10%, #2e1065 0%, #0f0717 50%, #030005 90%);
+    background-attachment: fixed;
+    color: #faf5ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Force Outer Streamlit Containers to Allow Vertical Centering */
+.stAppViewMainContainer, .stAppViewMainContainer > .main {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    height: 100% !important;
+}
+
+/* Vertical Centering + Windows 7 Aero Phase Transition */
+.stMainBlockContainer, div.block-container {
+    max-width: 67% !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    
+    /* Sleek, slower phase-shifting transition using Aero-style easing */
+    animation: win7PhaseTransition 0.75s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    will-change: transform, opacity, filter;
+}
+
+/* ==============================================================================
+   3. TYPOGRAPHY & METRICS
+   ============================================================================== */
+/* Purple Glow Metrics */
+[data-testid="stMetricValue"] {
+    font-size: 1.5rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    color: #e9d5ff !important;
+    text-shadow: 0 0 14px rgba(216, 180, 254, 0.6), 0 0 28px rgba(168, 85, 247, 0.4);
+}
+
+[data-testid="stMetricLabel"] {
+    font-size: 0.85rem !important;
+    color: #c084fc !important;
+    white-space: normal !important;
+}
+
+/* Header Typography */
+.stAppHeader {
+    background-color: transparent !important;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+}
+
+.main-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #e9d5ff;
+    margin-bottom: 2rem;
+}
+
+/* ==============================================================================
+   4. UI COMPONENTS & INPUTS (GLASS & NEON)
+   ============================================================================== */
+/* Purple Neon Border File Uploader */
+div[data-testid="stFileUploader"] {
+    background-color: rgba(15, 7, 23, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid #7e22ce;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+div[data-testid="stFileUploader"]:hover {
+    border-color: #c084fc;
+    background-color: rgba(46, 16, 101, 0.35);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+}
+
+/* High-Glow Purple Gradient Buttons with Glass Flare */
+.stButton button {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1px solid rgba(233, 213, 255, 0.35);
+    border-radius: 8px;
+    padding: 0.65rem 1.25rem;
+    transition: all 0.45s cubic-bezier(0.1, 0.9, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+.stButton button:hover {
+    background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 30px rgba(192, 132, 252, 0.8);
+}
+
+.stButton button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+/* Text Inputs & Input Areas */
+textarea, input[type="text"] {
+    background-color: rgba(15, 7, 23, 0.85) !important;
+    backdrop-filter: blur(8px);
+    color: #f3e8ff !important;
+    border: 1px solid #6b21a8 !important;
+    border-radius: 8px !important;
+    transition: all 0.45s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: #c084fc !important;
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.5) !important;
+}
+
+/* Glass Status Widget */
+div[data-testid="stStatusWidget"] {
+    border: 1px solid #7e22ce !important;
+    background-color: rgba(15, 7, 23, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 10px !important;
+    animation: aeroGlowPulse 3.5s infinite ease-in-out;
+}
+
+/* ==============================================================================
+   5. SIDEBAR & BADGES
+   ============================================================================== */
+/* Blackish Purple Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #08020c;
+    border-right: 1px solid #4c1d95;
+}
+
+/* Session Badge */
+.session-badge {
+    background-color: #2e1065;
+    color: #e9d5ff;
+    border: 1px solid #7e22ce;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    box-shadow: 0 0 8px rgba(126, 34, 206, 0.4);
+}

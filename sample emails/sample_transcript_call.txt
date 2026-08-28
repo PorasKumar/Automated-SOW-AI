@@ -1,0 +1,23 @@
+[DISCOVERY CALL TRANSCRIPT EXCERPT]
+Date: August 20, 2026
+Participants: Sarah (Agency Lead), Jason (CTO, LogisticsX)
+
+Sarah: Hi Jason, thanks for joining. Walk me through the core problem LogisticsX is trying to solve.
+
+Jason: Sure. We manage a fleet of 80 delivery trucks across 3 states. Right now, dispatchers manually map routes in Google Maps and text drivers individually. It’s inefficient and causing delivery delays. We need a custom Fleet Dispatch & Telematics Dashboard.
+
+Sarah: What are the non-negotiable features for MVP?
+
+Jason: Three main things. First, real-time GPS tracking for dispatchers showing all 80 vehicles on a live map. Second, automated route optimization based on live traffic data. Third, a simple mobile web view for drivers to mark deliveries as "Complete" or "Failed" with photo proof.
+
+Sarah: Do you have a specific tech stack or hosting requirement?
+
+Jason: We use PostgreSQL on GCP. The frontend must be lightweight—FastAPI backend with React or Vue is fine.
+
+Sarah: What’s your timeline and budget parameters?
+
+Jason: We’ve set aside $40,000 to $50,000 for this first phase. Timeline-wise, we need a working pilot in 6 to 8 weeks maximum because our busiest season starts in November.
+
+Sarah: Got it. Any major risks or edge cases you're worried about?
+
+Jason: Cellular dead zones. The driver app must support offline mode—storing delivery proofs locally on the device until connection is restored, then syncing back to the database automatically.

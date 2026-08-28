@@ -1,0 +1,19 @@
+SYSTEM ARCHITECTURE & TECHNICAL SPECIFICATIONS
+Project: AI-Powered Customer Support & Ticket Routing System
+Client: Zenith Retail Brands
+
+FUNCTIONAL REQUIREMENTS:
+1. Omnichannel Ingestion:
+   - Ingest customer support queries from Email, Web Chat, and WhatsApp Webhooks.
+   - Parse incoming attachments (PDF invoices, product images).
+
+2. Automated Classification & Routing:
+   - Categorize support tickets: Returns, Order Tracking, Product Inquiries, Fraud Alerts.
+   - Use vector similarity search (PGVector) against internal knowledge base for auto-replies.
+   - High-priority tickets (Fraud/Escalations) must bypass auto-reply and ping Slack #support-urgent channel.
+
+3. Technical Stack Expectations:
+   - Backend: Python / FastAPI
+   - Orchestration: LangGraph or LangChain
+   - Vector Store: PostgreSQL with pgvector extension
+   - Worker Engine: Redis Queue (RQ) for async background jobs

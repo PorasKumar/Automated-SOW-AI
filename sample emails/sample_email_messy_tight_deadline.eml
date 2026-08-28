@@ -1,0 +1,43 @@
+From: "Sarah Jenkins" <sarah.j@nexaretail.io>
+To: "Sales Team" <hello@youragency.com>
+Subject: Fwd: Re: Urgent: Shopify Analytics Sync & Multi-Store Dashboard
+Date: Mon, 03 Aug 2026 16:42:10 -0500
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+
+---------- Forwarded message ---------
+From: Sarah Jenkins <sarah.j@nexaretail.io>
+Date: Mon, Aug 3, 2026 at 4:30 PM
+Subject: Re: Urgent: Shopify Analytics Sync & Multi-Store Dashboard
+To: Marcus Vance <marcus@nexaretail.io>
+
+Adding the agency to this thread. 
+
+@Agency - See Marcus's note below about the store count. 
+
+To summarize what we discussed on our internal call:
+Our 15 store managers are wasting ~5 hours every Monday manually exporting Shopify CSVs into Excel sheets. It's a mess. We need an automated dashboard built ASAP.
+
+Needs:
+- Automated ETL pipeline pulling hourly from Shopify REST API across 15 store accounts.
+- Executive summary view (total revenue, inventory alerts, margin tracking).
+- Role-based access control (RBAC): Store managers should ONLY see their specific store's metrics, while Marcus and I see all 15.
+- Export-to-PDF/Excel reporting for board meetings.
+
+CRITICAL TIMELINE & BUDGET:
+- Black Friday is in 8 weeks, so this MUST be deployed and tested in 6 weeks max.
+- Budget: Our CFO capped this at $40,000, but we'd prefer to stay closer to $30k if possible.
+- Risk note: Shopify API rate limits might hit us during peak volume—how do you plan to handle batching/caching?
+
+Can you pull together a proposal by Thursday?
+
+Thanks,
+Sarah Jenkins
+VP of Operations | NexaRetail
+------
+From: Marcus Vance <marcus@nexaretail.io>
+Sent: Monday, August 3, 2026 2:15 PM
+To: Sarah Jenkins <sarah.j@nexaretail.io>
+Subject: Re: Urgent: Shopify Analytics Sync
+
+Sarah, make sure they know we might expand to 25 stores by Q1 next year, so the database schema needs to support that without a rewrite.
