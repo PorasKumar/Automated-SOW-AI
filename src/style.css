@@ -238,6 +238,34 @@ section[data-testid="stSidebar"] {
         border: 1px solid #7e22ce !important;
     }
 
+    /* Target File Uploader Box & Internal Elements (Mobile Only) */
+    div[data-testid="stFileUploader"],
+    div[data-testid="stFileUploader"] section,
+    div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"],
+    div[data-testid="stFileUploader"] [data-baseweb="file-uploader"] {
+        background-color: #0f0717 !important;
+        background: #0f0717 !important;
+        border-color: #7e22ce !important;
+    }
+
+    /* Ensure File Uploader Labels, Helper Text & Drag/Drop Prompts are Clearly Visible */
+    div[data-testid="stFileUploader"] label,
+    div[data-testid="stFileUploader"] span,
+    div[data-testid="stFileUploader"] p,
+    div[data-testid="stFileUploader"] small,
+    div[data-testid="stFileUploader"] div {
+        color: #e9d5ff !important;
+        -webkit-text-fill-color: #e9d5ff !important;
+    }
+
+    /* Style the "Browse files" Button inside the Mobile Uploader */
+    div[data-testid="stFileUploader"] button {
+        background-color: #2e1065 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        border: 1px solid #a855f7 !important;
+    }
+
     /* Stack grid metrics cleanly on mobile */
     [data-testid="stMetricValue"] {
         font-size: 1.25rem !important;
