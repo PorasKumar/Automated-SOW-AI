@@ -135,48 +135,88 @@ div[data-testid="stMarkdownContainer"] p {
 /* ==============================================================================
    4. UI COMPONENTS & INPUTS (GLASS & NEON)
    ============================================================================== */
-/* Purple Neon Border File Uploader */
+/* Custom Outer File Uploader Container */
 div[data-testid="stFileUploader"] {
-    background-color: rgba(15, 7, 23, 0.8);
+    background: rgba(15, 7, 23, 0.65) !important;
     backdrop-filter: blur(12px);
-    border: 1px solid #7e22ce;
-    border-radius: 12px;
-    padding: 18px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-    transition: all 0.5s cubic-bezier(0.1, 0.9, 0.2, 1);
+    border: 1px solid rgba(168, 85, 247, 0.4) !important;
+    border-radius: 14px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) !important;
 }
 
 div[data-testid="stFileUploader"]:hover {
-    border-color: #c084fc;
-    background-color: rgba(46, 16, 101, 0.35);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+    border-color: #c084fc !important;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.35), inset 0 0 20px rgba(168, 85, 247, 0.1) !important;
 }
 
-/* High-Glow Purple Gradient Buttons with Glass Flare */
-.stButton button {
-    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+/* Clear out Streamlit's ugly default dark-gray nested dropzone */
+div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"],
+div[data-testid="stFileUploader"] section {
+    background: rgba(25, 10, 38, 0.4) !important;
+    border: 1px dashed rgba(192, 132, 252, 0.3) !important;
+    border-radius: 10px !important;
+    padding: 16px 20px !important;
+}
+
+div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"]:hover {
+    border-color: #c084fc !important;
+    background: rgba(46, 16, 101, 0.3) !important;
+}
+
+/* Style internal "Upload" button inside the uploader */
+div[data-testid="stFileUploader"] button[data-testid="baseButton-secondary"],
+div[data-testid="stFileUploader"] section button {
+    background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%) !important;
+    color: #e9d5ff !important;
+    border: 1px solid rgba(192, 132, 252, 0.4) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-testid="stFileUploader"] button[data-testid="baseButton-secondary"]:hover,
+div[data-testid="stFileUploader"] section button:hover {
+    background: linear-gradient(135deg, #581c87 0%, #2e1065 100%) !important;
+    border-color: #c084fc !important;
     color: #ffffff !important;
-    font-weight: 700;
-    font-size: 0.95rem;
-    border: 1px solid rgba(233, 213, 255, 0.35);
-    border-radius: 8px;
-    padding: 0.65rem 1.25rem;
-    transition: all 0.45s cubic-bezier(0.1, 0.9, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.4) !important;
 }
 
-.stButton button:hover {
-    background: linear-gradient(135deg, #c084fc 0%, #9333ea 100%);
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: 0 0 30px rgba(192, 132, 252, 0.8);
+/* High-Glow Purple Glass Action Buttons */
+.stButton button, 
+div.stButton > button {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 60%, #581c87 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    border: 1px solid rgba(233, 213, 255, 0.4) !important;
+    border-radius: 10px !important;
+    padding: 0.75rem 2rem !important;
+    transition: all 0.35s cubic-bezier(0.1, 0.9, 0.2, 1) !important;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
 }
 
-.stButton button:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+.stButton button:hover, 
+div.stButton > button:hover {
+    background: linear-gradient(135deg, #c084fc 0%, #9333ea 60%, #6b21a8 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 28px rgba(192, 132, 252, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    border-color: #ffffff !important;
 }
 
-/* Comprehensive Text Input & Textarea Styling (Desktop + Mobile Override) */
+.stButton button:active, 
+div.stButton > button:active {
+    transform: translateY(1px) scale(0.99) !important;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.5) !important;
+}
+
+/* Text Inputs & Textareas */
 textarea, 
 input[type="text"], 
 div[data-baseweb="textarea"], 
