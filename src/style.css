@@ -74,18 +74,24 @@
 /* ==============================================================================
    3. TYPOGRAPHY & UNIFORM OUTPUT TEXT
    ============================================================================== */
-/* Ensure standard body markdown renders uniformly without highlighting or overflow */
-div[data-testid="stMarkdownContainer"] {
+/* Bulletproof text containment & normal wrapping */
+div[data-testid="stMarkdownContainer"],
+div[data-testid="stMarkdownContainer"] *,
+.stMarkdown,
+.stMarkdown * {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
     max-width: 100% !important;
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
+    font-style: normal; /* Removes weird unintended inline italics if set globally */
 }
 
 div[data-testid="stMarkdownContainer"] p {
     color: #faf5ff !important;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0.75rem !important;
+    display: block !important;
 }
 
 /* Purple Glow Metrics */
