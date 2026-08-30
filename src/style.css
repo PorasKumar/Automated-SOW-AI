@@ -39,6 +39,7 @@
     background-attachment: fixed;
     color: #faf5ff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden !important;
 }
 
 /* Force Outer Streamlit Containers to Allow Vertical Centering */
@@ -47,31 +48,44 @@
     flex-direction: column !important;
     min-height: 100vh !important;
     height: 100% !important;
+    overflow-x: hidden !important;
 }
 
 /* Vertical Centering + Windows 7 Aero Phase Transition */
 .stMainBlockContainer, div.block-container {
     max-width: 67% !important;
+    width: 100% !important;
     margin-top: auto !important;
     margin-bottom: auto !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+    box-sizing: border-box !important;
     
     /* Sleek, slower phase-shifting transition using Aero-style easing */
     animation: win7PhaseTransition 0.75s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
     will-change: transform, opacity, filter;
 }
 
+/* Ensure all elements fit logically inside the screen container */
+* {
+    box-sizing: border-box !important;
+}
+
 /* ==============================================================================
-   3. TYPOGRAPHY & METRICS
+   3. TYPOGRAPHY & UNIFORM OUTPUT TEXT
    ============================================================================== */
-/* Safe Text Rendering (Prevents jammed text & vertical letter stacking) */
-div[data-testid="stMarkdownContainer"] p {
-    white-space: normal !important;
-    word-break: normal !important;
+/* Ensure standard body markdown renders uniformly without highlighting or overflow */
+div[data-testid="stMarkdownContainer"] {
+    max-width: 100% !important;
     overflow-wrap: break-word !important;
-    letter-spacing: normal !important;
-    word-spacing: normal !important;
+    word-wrap: break-word !important;
+}
+
+div[data-testid="stMarkdownContainer"] p {
+    color: #faf5ff !important;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
 }
 
 /* Purple Glow Metrics */
@@ -219,14 +233,14 @@ section[data-testid="stSidebar"] {
 @media screen and (max-width: 768px) {
     .stMainBlockContainer, div.block-container {
         max-width: 95% !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;
     }
 
     .main-title {
-        font-size: 1.6rem !important;
+        font-size: 1.5rem !important;
     }
 
     .main-subtitle {
