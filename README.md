@@ -8,38 +8,19 @@ executes financial calculations against internal business rules, and routes outp
 
 
 ## 🏗 Workflow & Pipeline Architecture
+1.) Taking User Input Files [.pdf, .docx, .eml, .txt] 
 
-+--------------------------------------------------------------+
-|              Multi-Format Inputs                             |
-|   (.eml Emails | .pdf Documents | .docx Files | .txt Briefs) |
-+------------------------------+-------------------------------+
-|
-v
-+--------------------------------------------------------------+
-|             Structured Extraction Engine                     |
-|        (Pydantic Schema Enforcement + Gemini API)            |
-+------------------------------+-------------------------------+
-|
-v
-+--------------------------------------------------------------+
-|             Deterministic Rules & Financials                 |
-|     (Scope Verification, Margin Calc, Budget Flagging)       |
-+------------------------------+-------------------------------+
-|
-v
-+--------------------------------------------------------------+
-|               Human-in-the-Loop (HITL) Gate                  |
-|      (Manager Review, Manual Overrides, Approval State)      |
-+------------------------------+-------------------------------+
-|
-+---------------+---------------+
-|                               |
-v                               v
-+------------------------------+ +-----------------------------+
-|      Finalized SOW Doc       | |  Client Negotiation Draft   |
-|     (Formatted Output)       | |   (Margin/Budget Adjust)    |
-+------------------------------+ +-----------------------------+
+2.) Extracting details from the client and manager conversations about the project, in a pydantic structured schema using llm.with_structured_output()
 
+3.) Created a Raw Python Rules Engine to calculate financials, compare the client's requirements with our company's rules like : Our budget, cost per hour, development hours per week, risk capacity etc.
+
+4.) We print the calculated financials for our Company's manager to see and review it (Human in the Loop Phase).
+
+5.) Then the manager can either accept the budget which will print the SOW report which can be downloaded as an .md file.
+
+6.) If the manager rejects the budget with a feedback, then a negotiation email will be made by the LLM, with the Manager's feedback being the main theme of negotiation.
+
+Therefore we have automated a pipeline with HITL, and 2 choices of output based on different scenarios.
 
 
 
