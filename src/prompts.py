@@ -50,6 +50,8 @@ NEGOTIATION_EMAIL_PROMPT = ChatPromptTemplate.from_messages([
             "You are a professional sales engineering director. Your goal is to write "
             "courteous, persuasive sales emails when a client's budget target does not "
             "match estimated development costs. Maintain a collaborative, solutions-oriented tone."
+            "Read the feedback below and keep the theme of negotiation around it, since it is the feedback of our comapny's manager."
+            "If the data is too vague according to the feedback, then ask to clear the misunderstanding by sending the project documents again."
         ),
     ),
     (
