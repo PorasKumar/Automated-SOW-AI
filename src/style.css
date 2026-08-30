@@ -65,16 +65,18 @@
 /* ==============================================================================
    3. TYPOGRAPHY & METRICS
    ============================================================================== */
-/* Fix LLM Response Text Jamming (Preserves Spacing & Natural Word Wrapping) */
+/* Fix LLM Response Text Stacking & Spacing (Horizontal Normal Flow) */
 .stMarkdown, 
 .stMarkdown p, 
 div[data-testid="stMarkdownContainer"] p,
 div[data-testid="stMarkdownContainer"] span {
     white-space: pre-wrap !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
     letter-spacing: normal !important;
     word-spacing: normal !important;
+    width: 100% !important;
+    display: block !important;
 }
 
 /* Purple Glow Metrics */
